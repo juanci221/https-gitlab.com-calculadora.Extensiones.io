@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="js/manifest.json" />
+    <title>calculadora</title>
+    <style>
+
+        *{ font-family: Verdana, Geneva, Tahoma, sans-serif;
+                box-sizing: border-box;
+                }
+            body{
+            background: #346c3e;
+            margin: 10px;  
+           
+          }
+        
+          .menu{
+            width: 20%;
+            float: left;
+            border: 1px ;
+            border-radius: 12px;
+            background: #346c3e;
+            }
+        
+            .main {
+            width: 60%;
+            float: left;
+            padding: 30px;
+            background-color: white;
+            background: #346c3e;
+            text-align: center;
+           }
+        
+         
+        
+           footer{
+          text-align: center;
+          padding: 3px;
+          color: white;
+          width: 100%;
+          bottom: 0%;
+          clear: both;
+          padding-top: 20px;
+          letter-spacing: 5px;
+         
+        }
+        
+         h2{
+            
+             text-align: center;
+             color:  rgb(171 155 46) ;
+            }
+        
+        #percentage{
+            font-size: 16px;
+            width: 70px;
+            height: 50px;
+        
+        }
+         input {
+         width: 40%;
+         height: 50px;
+         border-radius: 12px;
+         font-size: 20px;
+        }
+         
+        button {
+          background-color: #e7e7e7;
+          color: black;
+          padding: 15px 32px;
+          text-align: center;
+          display: inline-block;
+          font-size: 28px;
+          border-radius: 12px;
+        }
+        
+        
+        #myDIV {
+          margin: 30px;
+          border: 1px solid black;
+          border-radius: 12px;
+          width: 150px;
+          height: 80px;
+          background-color: coral;
+          color: white;
+          animation: mymove 5s infinite;
+          padding: 45px;
+        }
+        
+        @keyframes mymove {
+          50% {transform: rotate(180deg);}
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .menu, .main {
+                width: 100%;
+                padding: 0 10px;
+            }
+        
+            input {
+                width: 90%;
+                height: 50px;
+                font-size: 28px;
+            }
+        
+            button {
+                padding: 10px 20px;
+                font-size: 35px;
+               
+
+            }
+        
+            select#percentage {
+                width: 120px;
+                height: 5%;
+                font-size: 28px;
+            }
+        
+            #myDIV {
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 12px;
+            width: 100px; /* Ancho más pequeño en dispositivos móviles */
+            height: 20px; /* Altura más pequeña en dispositivos móviles */
+            background-color: coral;
+            color: white;
+            animation: mymove 5s infinite;
+            padding: 10px; /* Menos espacio interno en dispositivos móviles */
+        }
+        
+        h1{
+            font-size: 13px;
+        }
+        
+        
+        
+        }
+          
+          @media only screen and (max-width: 500px) {
+            .menu, .main {
+                width: 100%;
+                padding: 0 10px;
+            }
+        
+            input {
+                width: 90%;
+                height: 60px;
+                font-size: 30px;
+            }
+        
+            button {
+                padding: 10px 20px;
+                font-size: 35px;
+               
+
+            }
+        
+            select#percentage {
+                width: 120px;
+                height: 50px;
+                font-size: 30px;
+            }
+            #myDIV {
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 12px;
+            width: 100px; 
+            height: 20px; 
+            background-color: coral;
+            color: white;
+            animation: mymove 5s infinite;
+            padding: 10px;
+        }
+        
+        h1{
+            font-size: 12px;
+        }
+        
+        
+        
+          }
+        
+        
+            </style>
+
+
+
+</head>
+<body>
+    <header class="menu">
+        <div id="myDIV">
+          <h1>Bienvenido</h1>
+        </div>
+        
+        </header>
+        
+        <main class="main">
+        
+            <h2>CALCULADORA</h2>
+            <form method="post" action="">
+                <input type="text" id="expression" name="expression" placeholder="Ingrese la expresión" required readonly>
+                <div>
+                    <button type="button" onclick="addToExpression('1')">1</button>
+                    <button type="button" onclick="addToExpression('2')">2</button>
+                    <button type="button" onclick="addToExpression('3')">3</button>
+                    <button type="button" onclick="addToExpression('+')">+</button>
+                </div>
+                <div>
+                    <button type="button" onclick="addToExpression('4')">4</button>
+                    <button type="button" onclick="addToExpression('5')">5</button>
+                    <button type="button" onclick="addToExpression('6')">6</button>
+                    <button type="button" onclick="addToExpression('-')">-</button>
+                </div>
+                <div>
+                    <button type="button" onclick="addToExpression('7')">7</button>
+                    <button type="button" onclick="addToExpression('8')">8</button>
+                    <button type="button" onclick="addToExpression('9')">9</button>
+                    <button type="button" onclick="addToExpression('*')">*</button>
+                </div>
+                <div>
+                    <button type="button" onclick="addToExpression('0')">0</button>
+                    <button type="button" onclick="addToExpression('.')">.</button>
+                    <button type="button" onclick="calculate()">=</button>
+                    <button type="button" onclick="addToExpression('/')">/</button>
+                </div>
+                <div>
+                    <button type="button" onclick="clearExpression()">C</button>
+                    <button type="button" onclick="deleteLastCharacter()">Borra Último n°</button>
+                </div>
+        
+        
+        
+                <div>
+                    <button type="button" onclick="calculateIva()">Calcular IVA (21%)</button>
+                    
+                </div>
+                <div><input type="text" id="ivaResult" name="ivaResult" placeholder="Resultado del IVA (21%)" readonly></div>
+        
+                <hr>
+        
+        
+                <select id="percentage" name="percentage">
+                    <script>
+                        for (var i = 1; i <= 100; i++) {
+                            var option = document.createElement("option");
+                            option.value = i;
+                            option.text = i + "%";
+                            document.getElementById("percentage").appendChild(option);
+                        }
+                    </script>
+                </select>
+            
+                <button type="button" onclick="calculatePercentage()">Calcular %</button>
+                
+                <div>
+                    <input type="text" id="percentageResult" name="percentageResult" placeholder="Resultado del Porcentaje" readonly>
+                </div>
+               
+                
+            </form>
+            </main>
+        
+           
+        
+                   
+            <footer><p> 2023  Author: Juan A.Q. [N/E.R./Arg.] </p> </footer>
+        
+            <script>
+        
+        function isInputValid(input) {
+            // Utilizar una expresión regular para permitir solo números, operadores y punto decimal
+            var pattern = /^[0-9\+\-\*\/\.]+$/;
+            return pattern.test(input);
+        }
+        
+        function addToExpression(value) {
+            var expressionInput = document.getElementById('expression');
+            expressionInput.value += value;
+        }
+        
+        function calculate() {
+            var expressionInput = document.getElementById('expression');
+            var expression = expressionInput.value;
+        
+            if (isInputValid(expression)) {
+                // La entrada es válida, evaluar la expresión
+                expressionInput.value = eval(expression);
+            } else {
+                // Mostrar un mensaje de error si la entrada no es válida
+                expressionInput.value = "Entrada no válida";
+            }
+        }
+        
+     
+        
+                function calculatePercentage() {
+            var percentageInput = document.getElementById('percentage');
+            var percentageResultInput = document.getElementById('percentageResult');
+            var selectedPercentage = parseFloat(percentageInput.value);
+            var expressionInput = document.getElementById('expression');
+            var value = parseFloat(expressionInput.value);
+        
+            if (!isNaN(selectedPercentage) && !isNaN(value)) {
+                var result = value + (selectedPercentage / 100) * value;
+                percentageResultInput.value = result;
+            } else {
+                percentageResultInput.value = "Ingrese un valor numérico válido.";
+            }
+        }
+        
+        
+                function clearExpression() {
+                    var expressionInput = document.getElementById('expression');
+                    var percentageResultInput = document.getElementById('percentageResult');
+                    var ivaResultInput = document.getElementById('ivaResult');
+                    expressionInput.value = '';
+                    percentageResultInput.value='';
+                    ivaResultInput.value='';
+                }
+        
+                function calculateIva() {
+            var ivaResultInput = document.getElementById('ivaResult');
+            var expressionInput = document.getElementById('expression');
+            var value = parseFloat(expressionInput.value);
+        
+            if (!isNaN(value)) {
+                var result = value + (0.21 * value); // Agregar el 21% al valor original
+                ivaResultInput.value = result;
+            } else {
+                ivaResultInput.value = "Ingrese un valor numérico válido.";
+            }
+        }
+        
+        
+        function deleteLastCharacter() {
+            var expressionInput = document.getElementById('expression');
+            var currentExpression = expressionInput.value;
+            
+            if (currentExpression.length > 0) {
+                // Elimina el último carácter de la expresión.
+                expressionInput.value = currentExpression.substring(0, currentExpression.length - 1);
+            }
+        }
+        
+        
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then(registration => {
+                            console.log('Service Worker registrado con éxito:', registration);
+                        })
+                        .catch(error => {
+                            console.log('Error al registrar Service Worker:', error);
+                        });
+                });
+            }
+        
+        
+        
+            </script> 
+</body>
+</html>
