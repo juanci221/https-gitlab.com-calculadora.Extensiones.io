@@ -1,0 +1,18 @@
+{
+    "lang": "es",
+    "name": "Mi Calculadora",
+    "short_name": "Calculadora",
+    "description": "Una calculadora web PWA",
+    "start_url": "index.html",
+    "theme_color": "#00A862",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "imag-icono.png",
+            "type": "image/png",
+            "sizes": "315x315"
+        }
+    ]
+}
